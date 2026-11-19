@@ -32,6 +32,7 @@ h2{font-size:1.9rem;margin:0 0 6px;font-weight:normal}
 .slot.arch{width:min(78vw,300px);aspect-ratio:3/4;border-radius:999px 999px 14px 14px}
 .slot.wide{width:min(88vw,420px);aspect-ratio:4/3;border-radius:200px 200px 14px 14px}
 .slot.round{width:min(58vw,210px);aspect-ratio:1;border-radius:50%}
+.slot.cardp{width:min(88vw,380px);aspect-ratio:3/4;border-radius:14px}
 .slot span{position:absolute;inset:0;display:grid;place-items:center;padding:20px;background:#0000}
 .slot.has span{display:none}.slot input{display:none}
 .card{background:var(--card);border:1px solid var(--gold);border-radius:16px;padding:22px;margin:16px 0;box-shadow:0 6px 18px #0002}
@@ -102,6 +103,11 @@ h2{font-size:1.9rem;margin:0 0 6px;font-weight:normal}
   </section>
 
   <section class="reveal">
+    <h2 class="script">Our Wedding Card</h2><div class="sub">With joy, we invite you</div>
+    <label class="slot cardp" id="s-card"><input type="file" accept="image/*"><span>💌 Tap to add<br>wedding card photo</span></label>
+  </section>
+
+  <section class="reveal">
     <h2 class="script">Counting Down</h2><div class="sub">Until we say “I do”</div>
     <div class="cd"><div><b id="d">0</b><small>Days</small></div><div><b id="h">0</b><small>Hours</small></div><div><b id="m">0</b><small>Mins</small></div><div><b id="s">0</b><small>Secs</small></div></div>
     <p class="script" style="font-size:1.7rem;margin-top:30px">Your presence is the greatest gift</p>
@@ -150,13 +156,19 @@ document.querySelectorAll('.slot').forEach(s=>{
   i.onchange=()=>{const f=i.files[0];if(!f)return;const r=new FileReader();
     r.onload=()=>{s.style.backgroundImage=`url(${r.result})`;s.classList.add('has')};r.readAsDataURL(f)};
 });
+// auto-load photos from the same folder (couple, bride, groom, qr)
+const FILES={'s-couple':'couple','s-bride':'bride','s-groom':'groom','s-qr':'qr','s-card':'card'};
+Object.entries(FILES).forEach(([id,n])=>{const s=$(id);
+  (function t(l){if(!l.length)return;const u=n+'.'+l[0],im=new Image();
+    im.onload=()=>{s.style.backgroundImage=`url(${u})`;s.classList.add('has')};
+    im.onerror=()=>t(l.slice(1));im.src=u})(['jpg','jpeg','png','webp'])});
 // countdown
 function tick(){let t=Math.max(0,WEDDING-new Date())/1000;
   $('d').textContent=Math.floor(t/86400);$('h').textContent=Math.floor(t%86400/3600);
   $('m').textContent=Math.floor(t%3600/60);$('s').textContent=Math.floor(t%60)}
 tick();setInterval(tick,1000);
 // music
-const a=$('aud');
+const a=$('aud');a.src='music.mp3';a.onerror=()=>{a.removeAttribute('src')};
 $('mFile').onchange=e=>{const f=e.target.files[0];if(!f)return;a.src=URL.createObjectURL(f);a.play().catch(()=>{})};
 $('mBtn').onclick=()=>{if(!a.src){$('mFile').click();return}a.paused?a.play():a.pause()};
 // scroll reveal
