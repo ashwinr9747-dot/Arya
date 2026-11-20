@@ -4,13 +4,13 @@
 <title>ആര്യ & രഞ്ജിത്ത് – വിവാഹ ക്ഷണം</title>
 <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400;700&family=Noto+Serif+Malayalam:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fbf1dc;--card:#fff8e8;--ink:#5a1a24;--gold:#b88418;--green:#2f5d3a;--soft:#7a5a40;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a1418;--card:#3a1c22;--ink:#f6dfc0;--gold:#e0b04a;--green:#8fc79a;--soft:#d8b99a}}
+:root{--bg:#fff6e6;--card:#fffcf3;--ink:#7d2f3d;--gold:#c8962e;--green:#2f5d3a;--soft:#8c6b58;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root[data-theme="dark"]{--bg:#2a1418;--card:#3a1c22;--ink:#f6dfc0;--gold:#e0b04a;--green:#8fc79a;--soft:#d8b99a}}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Serif Malayalam',Georgia,serif;text-align:center;overflow-x:hidden}
 .script{font-family:'Manjari','Noto Serif Malayalam',sans-serif;font-weight:700;color:var(--gold)}
 /* envelope */
-#intro{position:fixed;inset:0;z-index:50;background:radial-gradient(circle at 50% 40%,#f7d9a0,#c9762b 70%,#7a1f2b);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transition:opacity 1s,visibility 1s;color:#fff8e8}
+#intro{position:fixed;inset:0;z-index:50;background:radial-gradient(circle at 50% 40%,#fff3d6,#f9d6c0 60%,#f2b5bd);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transition:opacity 1s,visibility 1s;color:#7d2f3d}
 #intro.gone{opacity:0;visibility:hidden}
 .env{position:relative;width:min(84vw,340px);height:min(56vw,226px);cursor:pointer;perspective:900px;animation:bob 2.4s ease-in-out infinite}
 @keyframes bob{50%{transform:translateY(-8px)}}
@@ -47,6 +47,49 @@ h2{font-size:1.9rem;margin:0 0 6px;font-weight:normal}
 #music button{width:46px;height:46px;border-radius:50%;border:2px solid var(--gold);background:var(--card);color:var(--ink);font-size:20px;cursor:pointer;box-shadow:0 4px 12px #0004}
 #music label{display:none}
 .reveal{opacity:0;transform:translateY(24px);transition:.9s}.reveal.in{opacity:1;transform:none}
+body{background:linear-gradient(180deg,#fff6e6,#fde8e2 30%,#f5f0da 55%,#fbe3ea 80%,#fff3dc)}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.3;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .4 0 0 0 0 .25 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+#invite.show{animation:inv 1.6s ease both}@keyframes inv{from{opacity:0}}
+.garland{transform-origin:50% 0;animation:sway 7s ease-in-out infinite alternate}@keyframes sway{from{transform:rotate(-.5deg)}to{transform:rotate(.5deg)}}
+.reveal{opacity:0;transform:none;transition:opacity .5s}.reveal.in{opacity:1}
+.reveal>*{opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform 1s cubic-bezier(.2,.8,.2,1)}
+.reveal.in>*{opacity:1;transform:none;filter:none}
+.reveal.in>*:nth-child(2){transition-delay:.15s}.reveal.in>*:nth-child(3){transition-delay:.3s}.reveal.in>*:nth-child(4){transition-delay:.45s}.reveal.in>*:nth-child(5){transition-delay:.6s}.reveal.in>*:nth-child(6){transition-delay:.75s}
+.btn{transition:transform .3s}.btn:active{transform:scale(.95)}
+.cd div{animation:bobb 3.2s ease-in-out infinite}.cd div:nth-child(2){animation-delay:.3s}.cd div:nth-child(3){animation-delay:.6s}.cd div:nth-child(4){animation-delay:.9s}@keyframes bobb{50%{transform:translateY(-5px)}}
+.wave{position:relative;height:56px;overflow:hidden;margin-bottom:-1px}.wave svg{position:absolute;left:0;bottom:0;width:200%;height:100%;opacity:.55;animation:wv 12s linear infinite}.wave svg.r{animation-duration:18s;animation-direction:reverse}@keyframes wv{to{transform:translateX(-50%)}}
+.petal,.burst{position:fixed;pointer-events:none;border-radius:60% 0 60% 0;background:var(--c)}
+.petal{top:-30px;z-index:30;width:var(--s);height:calc(var(--s)*1.4);opacity:.75;animation:fall var(--d) linear infinite var(--dl)}
+@keyframes fall{0%{transform:translate3d(0,-5vh,0) rotate(0)}100%{transform:translate3d(var(--x),112vh,0) rotate(540deg)}}
+.burst{width:9px;height:12px;z-index:60;transform:translate(-50%,-50%);animation:bst .9s ease-out forwards}
+@keyframes bst{to{transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) rotate(200deg) scale(.4);opacity:0}}
+@media(prefers-reduced-motion:reduce){.petal,.wave svg,.garland,.cd div{animation:none}}
+.rose{border-radius:50% 50% 50% 50%/65% 65% 35% 35%}
+.scene{position:relative;max-width:540px;margin:0 auto;border-radius:22px;box-shadow:0 10px 26px #7d2f3d22}
+.tp{position:absolute;width:8px;height:11px;border-radius:60% 0 60% 0;background:var(--c);opacity:0;pointer-events:none;animation:toss var(--d) ease-out infinite var(--dl)}
+@keyframes toss{0%{opacity:0;transform:translate(0,0) rotate(0)}12%{opacity:1}45%{transform:translate(var(--tx),-72px) rotate(140deg)}100%{opacity:0;transform:translate(calc(var(--tx)*1.7),130px) rotate(440deg)}}
+.fl{transform-box:fill-box;transform-origin:50% 100%;animation:fl .5s ease-in-out infinite alternate}@keyframes fl{to{transform:scale(.85,1.2) rotate(4deg)}}
+.sw{transform-origin:50% 0;animation:sway 5s ease-in-out infinite alternate}
+#intro{display:block;overflow:hidden}
+#intro .sc{transition:transform 3.2s cubic-bezier(.6,0,.3,1),opacity 1.4s 1.8s}
+#intro.opening .sc{transform:scale(2.4);transform-origin:50% 62%;opacity:0}
+#intro>p:first-child{position:absolute;top:calc(6% + env(safe-area-inset-top,0px));left:0;right:0;z-index:6;line-height:1.25;text-shadow:0 2px 10px #fff9;animation:appear 1.8s .3s both}
+#intro>p:first-child::after{content:'ആര്യ ♥ രഞ്ജിത്ത്';display:block;font-size:1.3em;color:#8a1f3a;margin-top:6px}
+#intro .hint{display:none}
+#env{position:absolute;left:50%;bottom:calc(7% + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:6;padding:14px 32px;border-radius:40px;background:linear-gradient(135deg,#d6336c,#8a1f3a);color:#ffeccf;font-size:1.15rem;border:2px solid #e3b040;box-shadow:0 8px 22px #7d2f3d66;cursor:pointer;white-space:nowrap;animation:pl 1.8s ease-in-out infinite,appear 1.2s 4.8s both}
+@keyframes pl{50%{transform:translateX(-50%) scale(1.07)}}@keyframes appear{from{opacity:0}}
+#intro.opening>p:first-child,#intro.opening #env{opacity:0;animation:none;transition:opacity .5s}
+.wk{animation:walk 4.6s cubic-bezier(.25,.7,.3,1) both var(--dl)}@keyframes walk{from{transform:translateX(var(--dx));opacity:0}12%{opacity:1}}
+.bb{transform-box:fill-box;transform-origin:50% 100%;animation:bb .46s ease-in-out 10 var(--dl)}@keyframes bb{50%{transform:translateY(-4px) rotate(1.6deg)}}
+.tw{animation:tw 2s ease-in-out infinite alternate}@keyframes tw{from{opacity:.1}to{opacity:1}}
+.fr{transform-box:fill-box;transform-origin:50% 100%;animation:fsw 4s ease-in-out infinite alternate}@keyframes fsw{from{transform:rotate(-2deg)}to{transform:rotate(2deg)}}
+.hg{transform-box:fill-box;transform-origin:50% 0;animation:fsw 3s ease-in-out infinite alternate}
+.stg{position:absolute;bottom:0;left:50%;width:max(100vw,50vh);height:max(100vh,200vw);margin-left:calc(max(100vw,50vh)/-2);will-change:transform}
+@supports (height:1dvh){.stg{width:max(100vw,50dvh);height:max(100dvh,200vw);margin-left:calc(max(100vw,50dvh)/-2)}}
+.fw{position:absolute;top:78.75%;width:15.5%;height:18.125%;will-change:transform}.fw svg{display:block;width:100%;height:100%;overflow:visible}
+#intro .fr,#intro .hg,#intro .tw,#intro .fl{animation:none}
+#intro.opening .sc{transform:scale(1.9);transform-origin:50% 68%;opacity:0}
+.petal,.tp,.garland,.sw,.wave svg,.burst{will-change:transform}
 </style></head><body>
 
 <!-- Painted flower library -->
@@ -61,8 +104,29 @@ h2{font-size:1.9rem;margin:0 0 6px;font-weight:normal}
 </defs></svg>
 
 <div id="intro">
-  <p class="script" style="font-size:2rem;color:#fde6b0">വിവാഹ ക്ഷണക്കത്ത്</p>
-  <div class="env" id="env"><div class="back"></div><div class="paper"></div><div class="front"></div><div class="flap"></div><div class="seal">♥</div></div>
+  <p class="script" style="font-size:2rem;color:#b5701f">വിവാഹ ക്ഷണക്കത്ത്</p>
+  <div class='stg sc'><svg viewBox='0 0 400 800' style='position:absolute;inset:0;width:100%;height:100%'><defs><linearGradient id='isk' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='#fcd9c4'/><stop offset='.5' stop-color='#fbe0dc'/><stop offset='1' stop-color='#fff3d9'/></linearGradient><radialGradient id='isn'><stop offset='0' stop-color='#fff8cf'/><stop offset='1' stop-color='#fff8cf' stop-opacity='0'/></radialGradient><linearGradient id='igr' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='#f6dfbd'/><stop offset='1' stop-color='#e6c08c'/></linearGradient><pattern id='mgp1' width='14' height='14' patternUnits='userSpaceOnUse'><circle cx='7' cy='7' r='5.8' fill='#ef8a17'/><circle cx='7' cy='7' r='2.6' fill='#fbc43a'/></pattern><filter id='p3'><feTurbulence type='fractalNoise' baseFrequency='.05' numOctaves='2' seed='7'/><feDisplacementMap in='SourceGraphic' scale='3'/></filter>
+<symbol id='iw' viewBox='0 0 60 140'><path d='M22 34Q30 30 38 34L45 139H15Z' fill='currentColor'/><path d='M22 34Q30 30 38 34L41 74 27 64Z' fill='#e3b040'/><path d='M23 33Q30 29 37 33L36 47H24Z' fill='#2f7d5a'/><path d='M16 129H44L45 139H15Z' fill='#e3b040'/><rect x='27' y='25' width='6' height='8' fill='#c68a5e'/><circle cx='30' cy='18' r='10' fill='#c68a5e'/><path d='M20 18Q19 5 30 5Q41 5 40 18Q36 10 30 10Q24 10 20 18Z' fill='#24150f'/><circle cx='30' cy='4' r='5' fill='#24150f'/><g fill='#fffdf4'><circle cx='36' cy='5' r='2'/><circle cx='38.5' cy='9' r='2'/><circle cx='25' cy='3' r='2'/><circle cx='22' cy='8' r='2'/></g><circle cx='30' cy='15' r='1.3' fill='#d62828'/><circle cx='26' cy='19' r='.9' fill='#24150f'/><circle cx='34' cy='19' r='.9' fill='#24150f'/><path d='M27 23Q30 25 33 23' stroke='#8a2f2f' fill='none' stroke-width='1'/><path d='M24 36 18 56 27 61M36 36 42 56 33 61' stroke='#c68a5e' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><ellipse cx='30' cy='60' rx='13' ry='3.5' fill='#e3b040'/><circle cx='24' cy='57' r='3' fill='#ef8a17'/><circle cx='31' cy='55.5' r='3.2' fill='#d6336c'/><circle cx='37' cy='57' r='3' fill='#ef8a17'/><ellipse class='fl' cx='30' cy='51' rx='1.8' ry='3.6' fill='#ffb02e'/></symbol>
+<symbol id='im' viewBox='0 0 60 140'><path d='M21 34Q30 30 39 34L40 70H20Z' fill='currentColor'/><path d='M21 34 28 32 41 66 33 68Z' fill='#fffaf0' stroke='#e3b040' stroke-width='1.5'/><path d='M20 68H40L44 139H16Z' fill='#fffaf0' stroke='#eadcb8' stroke-width='.8'/><path d='M16.6 127H43.4L44 139H16Z' fill='#e3b040'/><rect x='27' y='25' width='6' height='8' fill='#b87a50'/><circle cx='30' cy='18' r='10' fill='#b87a50'/><path d='M20 17Q21 5 30 5Q39 5 40 17Q36 10 30 10Q24 10 20 17Z' fill='#1d120d'/><path d='M30 10V14' stroke='#d62828' stroke-width='1.8'/><circle cx='26' cy='18' r='.9' fill='#1d120d'/><circle cx='34' cy='18' r='.9' fill='#1d120d'/><path d='M25 22Q30 20 35 22' stroke='#1d120d' stroke-width='1.6' fill='none'/><path d='M23 36 19 52 24 60M37 36 41 52 36 60' stroke='#b87a50' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><ellipse cx='30' cy='60' rx='11' ry='15' fill='none' stroke='#ef8a17' stroke-width='5' stroke-dasharray='5 2.5'/></symbol>
+<g id='lamp2'><path d='M-8 0H8L5-6H-5Z' fill='#c8962e'/><rect x='-1.5' y='-26' width='3' height='20' fill='#c8962e'/><path d='M-10-26Q0-20 10-26L8-29H-8Z' fill='#d9a63a'/><ellipse class='fl' cx='0' cy='-35' rx='3' ry='6' fill='#ffb02e'/></g>
+<g id='bn'><path d='M0 602Q-31 560 -21 520Q-1 560 0 602Z M0 602Q31 560 21 520Q1 560 0 602Z' fill='#4d8a52'/></g></defs>
+<rect width='400' height='800' fill='url(#isk)'/><circle cx='200' cy='330' r='190' fill='url(#isn)'/>
+<g><path d='M30 640Q20 520 48 400' stroke='#a8794d' stroke-width='9' fill='none' stroke-linecap='round'/><path d='M372 640Q384 520 354 410' stroke='#a8794d' stroke-width='9' fill='none' stroke-linecap='round'/>
+<rect x='96' y='278' width='208' height='330' fill='#f9dcc4'/><path d='M96 278V608M130 278V608M165 278V608M200 278V608M235 278V608M270 278V608M304 278V608' stroke='#e7b99a' stroke-width='2'/><path d='M170 608V470Q200 430 230 470V608Z' fill='#fff1d6' stroke='#c8962e' stroke-width='3'/><g fill='#8a1f3a' stroke='#e3b040' stroke-width='2'><rect x='108' y='520' width='44' height='70' rx='8'/><rect x='248' y='520' width='44' height='70' rx='8'/></g>
+<rect x='84' y='280' width='14' height='322' fill='#c9852f'/><rect x='140' y='280' width='14' height='322' fill='#c9852f'/><rect x='252' y='280' width='14' height='322' fill='#c9852f'/><rect x='308' y='280' width='14' height='322' fill='#c9852f'/><g fill='url(#mgp1)'><rect x='84' y='280' width='14' height='322'/><rect x='140' y='280' width='14' height='322'/><rect x='252' y='280' width='14' height='322'/><rect x='308' y='280' width='14' height='322'/></g>
+<use href='#bn' x='91' y='0'/><use href='#bn' x='147' y='0'/><use href='#bn' x='259' y='0'/><use href='#bn' x='315' y='0'/>
+<path d='M44 282L200 205L356 282Z' fill='#b8483a'/><path d='M44 282L200 205L356 282' fill='none' stroke='#e3b040' stroke-width='4'/><path d='M120 235L200 180L280 235Z' fill='#c25a3c'/><path d='M200 180V162' stroke='#c8962e' stroke-width='3'/><circle cx='200' cy='158' r='5' fill='#e3b040'/><path d='M50 282a15 15 0 0 0 30 0a15 15 0 0 0 30 0a15 15 0 0 0 30 0a15 15 0 0 0 30 0a15 15 0 0 0 30 0a15 15 0 0 0 30 0a15 15 0 0 0 30 0a15 15 0 0 0 30 0a15 15 0 0 0 30 0a15 15 0 0 0 30 0Z' fill='#e3b040' stroke='#b8483a' stroke-width='1.5'/>
+<path d='M70 608H330L340 640H60Z' fill='#d9a566'/><rect y='640' width='400' height='160' fill='url(#igr)'/><rect x='50' y='640' width='300' height='10' fill='#c98f4c'/><path d='M170 800L184 650H216L230 800Z' fill='#b8284a' opacity='.9'/><path d='M170 800L184 650M230 800L216 650' stroke='#e3b040' stroke-width='3'/>
+<ellipse cx='200' cy='712' rx='120' ry='16' fill='none' stroke='#fff' stroke-width='2.5' stroke-dasharray='1 6' stroke-linecap='round'/><ellipse cx='200' cy='712' rx='84' ry='11' fill='none' stroke='#f08aa8' stroke-width='2.5' stroke-dasharray='1 6' stroke-linecap='round'/></g>
+<g class='fr' fill='none' stroke='#5f9a5f' stroke-width='4' stroke-linecap='round'><path d='M48 400Q10 380 -10 410M48 400Q20 360 8 340M48 400Q50 350 60 325M48 400Q80 365 108 360M48 400Q95 390 115 420'/></g><g class='fr' style='animation-delay:-2s' fill='none' stroke='#5f9a5f' stroke-width='4' stroke-linecap='round'><path d='M354 410Q392 385 414 415M354 410Q382 365 394 345M354 410Q352 358 342 332M354 410Q322 372 294 366M354 410Q308 396 288 426'/></g>
+<rect class='hg' x='112' y='294' width='14' height='70' fill='url(#mgp1)'/><rect class='hg' style='animation-delay:-1s' x='168' y='294' width='14' height='112' fill='url(#mgp1)'/><rect class='hg' style='animation-delay:-2s' x='224' y='294' width='14' height='112' fill='url(#mgp1)'/><rect class='hg' style='animation-delay:-.5s' x='280' y='294' width='14' height='70' fill='url(#mgp1)'/>
+<path d='M200 282V330' stroke='#c8962e' stroke-width='2'/><path d='M188 330Q200 346 212 330Z' fill='#d9a63a'/><ellipse class='fl' cx='200' cy='322' rx='3' ry='6' fill='#ffb02e'/>
+<use href='#lamp2' transform='translate(58 652) scale(1.4)'/><use href='#lamp2' transform='translate(342 652) scale(1.4)'/>
+
+
+<g fill='#fff'><circle class='tw' cx='120' cy='200' r='2'/><circle class='tw' style='animation-delay:-.6s' cx='280' cy='190' r='2.5'/><circle class='tw' style='animation-delay:-1.2s' cx='60' cy='300' r='2'/><circle class='tw' style='animation-delay:-.3s' cx='340' cy='320' r='2'/><circle class='tw' style='animation-delay:-.9s' cx='200' cy='120' r='2.5'/><circle class='tw' style='animation-delay:-1.5s' cx='150' cy='150' r='1.8'/><circle class='tw' style='animation-delay:-.2s' cx='250' cy='140' r='1.8'/></g></svg>
+<div class='fw wk' style='left:5%;--dx:-110vw;--dl:.2s'><svg class='bb' viewBox='0 0 60 140' style='color:#d6336c'><use href='#iw'/></svg></div><div class='fw wk' style='left:17.5%;--dx:-110vw;--dl:.7s'><svg class='bb' viewBox='0 0 60 140' style='color:#e9a23b'><use href='#im'/></svg></div><div class='fw wk' style='left:30%;--dx:-110vw;--dl:1.2s'><svg class='bb' viewBox='0 0 60 140' style='color:#7a3fa0'><use href='#iw'/></svg></div><div class='fw wk' style='left:54.5%;--dx:110vw;--dl:.4s'><svg class='bb' viewBox='0 0 60 140' style='color:#4a8f6a'><use href='#im'/></svg></div><div class='fw wk' style='left:67%;--dx:110vw;--dl:.9s'><svg class='bb' viewBox='0 0 60 140' style='color:#c0392b'><use href='#iw'/></svg></div><div class='fw wk' style='left:79.5%;--dx:110vw;--dl:1.4s'><svg class='bb' viewBox='0 0 60 140' style='color:#d6336c'><use href='#im'/></svg></div></div>
+  <div id='env'>ക്ഷണം തുറക്കൂ ♥</div>
   <p class="hint">കത്ത് തുറക്കാൻ തൊടുക</p>
 </div>
 
@@ -77,6 +141,16 @@ h2{font-size:1.9rem;margin:0 0 6px;font-weight:normal}
     <div class="sub" id="dateLine">2026 ഡിസംബർ 13 (1202 വൃശ്ചികം 27) ഞായറാഴ്ച<br>മുഹൂർത്തം: രാവിലെ 11.00 നും 12.00 നും മദ്ധ്യേ</div>
   </section>
 
+  <section class="reveal" style="padding:6px 10px 0"><div class="scene"><svg class="art" viewBox="0 0 400 250"><defs><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fde4d0"/><stop offset="1" stop-color="#fff3dc"/></linearGradient><filter id="p2"><feTurbulence type="fractalNoise" baseFrequency=".07" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="2.2"/></filter>
+<symbol id="wm" viewBox="0 0 60 140"><path d="M24 36 10 14M36 36 50 14" stroke="#c68a5e" stroke-width="5" stroke-linecap="round" fill="none"/><circle cx="10" cy="13" r="3.4" fill="#c68a5e"/><circle cx="50" cy="13" r="3.4" fill="#c68a5e"/><path d="M22 34Q30 30 38 34L45 139H15Z" fill="currentColor"/><path d="M22 34Q30 30 38 34L41 74 27 64Z" fill="#e3b040"/><path d="M23 33Q30 29 37 33L36 47H24Z" fill="#2f7d5a"/><path d="M16 129H44L45 139H15Z" fill="#e3b040"/><rect x="27" y="25" width="6" height="8" fill="#c68a5e"/><circle cx="30" cy="18" r="10" fill="#c68a5e"/><path d="M20 18Q19 5 30 5Q41 5 40 18Q36 10 30 10Q24 10 20 18Z" fill="#24150f"/><circle cx="30" cy="4" r="5" fill="#24150f"/><g fill="#fffdf4"><circle cx="36" cy="5" r="2"/><circle cx="38.5" cy="9" r="2"/><circle cx="25" cy="3" r="2"/><circle cx="22" cy="8" r="2"/></g><circle cx="30" cy="15" r="1.3" fill="#d62828"/><circle cx="26" cy="19" r=".9" fill="#24150f"/><circle cx="34" cy="19" r=".9" fill="#24150f"/><path d="M27 23Q30 25 33 23" stroke="#8a2f2f" fill="none" stroke-width="1"/></symbol>
+<symbol id="mn" viewBox="0 0 60 140"><path d="M23 36 10 14M37 36 50 14" stroke="#b87a50" stroke-width="5" stroke-linecap="round" fill="none"/><circle cx="10" cy="13" r="3.4" fill="#b87a50"/><circle cx="50" cy="13" r="3.4" fill="#b87a50"/><path d="M21 34Q30 30 39 34L40 70H20Z" fill="currentColor"/><path d="M21 34 28 32 41 66 33 68Z" fill="#fffaf0" stroke="#e3b040" stroke-width="1.5"/><path d="M20 68H40L44 139H16Z" fill="#fffaf0" stroke="#eadcb8" stroke-width=".8"/><path d="M16.6 127H43.4L44 139H16Z" fill="#e3b040"/><rect x="27" y="25" width="6" height="8" fill="#b87a50"/><circle cx="30" cy="18" r="10" fill="#b87a50"/><path d="M20 17Q21 5 30 5Q39 5 40 17Q36 10 30 10Q24 10 20 17Z" fill="#1d120d"/><path d="M30 10V14" stroke="#d62828" stroke-width="1.8"/><circle cx="26" cy="18" r=".9" fill="#1d120d"/><circle cx="34" cy="18" r=".9" fill="#1d120d"/><path d="M25 22Q30 20 35 22" stroke="#1d120d" stroke-width="1.6" fill="none"/></symbol>
+<g id="lamp"><path d="M-8 0H8L5-6H-5Z" fill="#c8962e"/><rect x="-1.5" y="-26" width="3" height="20" fill="#c8962e"/><path d="M-10-26Q0-20 10-26L8-29H-8Z" fill="#d9a63a"/><ellipse class="fl" cx="0" cy="-35" rx="3" ry="6" fill="#ffb02e"/><ellipse class="fl" cx="0" cy="-34" rx="1.3" ry="3.5" fill="#fff3b0"/></g></defs>
+<rect width="400" height="250" rx="22" fill="url(#sk)"/>
+<g filter="url(#p2)"><path d="M150 200H250V236H150Z" fill="#dca383"/><path d="M155 200 165 172H235L245 200Z" fill="#e9bf9f"/><path d="M165 172 174 146H226L235 172Z" fill="#dca383"/><path d="M174 146 182 124H218L226 146Z" fill="#e9bf9f"/><path d="M182 124 190 104H210L218 124Z" fill="#dca383"/><path d="M190 104 200 78 210 104Z" fill="#e9bf9f"/><circle cx="200" cy="74" r="3.5" fill="#c8962e"/><path d="M188 236V212Q200 196 212 212V236Z" fill="#8a4b3a"/><g fill="#fff6e6" opacity=".7"><rect x="170" y="180" width="6" height="10"/><rect x="224" y="180" width="6" height="10"/><rect x="192" y="156" width="16" height="8"/></g></g>
+<ellipse cx="200" cy="238" rx="175" ry="11" fill="#f6e0c4"/><path d="M40 238Q55 228 70 238T100 238T130 238T160 238T190 238T220 238T250 238T280 238T310 238T340 238T360 238" stroke="#fff" stroke-width="2.2" fill="none" stroke-dasharray="1 5" stroke-linecap="round"/>
+<use href="#lamp" transform="translate(160 236)"/><use href="#lamp" transform="translate(240 236)"/>
+<g filter="url(#p2)"><use href="#wm" x="22" y="95" width="60" height="140" style="color:#d6336c"/><use href="#mn" x="78" y="95" width="60" height="140" style="color:#e9a23b"/><use href="#mn" x="262" y="95" width="60" height="140" style="color:#4a8f6a"/><use href="#wm" x="318" y="95" width="60" height="140" style="color:#7a3fa0"/></g></svg></div>
+<p class="script" style="font-size:1.7rem;margin:14px 0 0">മംഗളം ഭവതു</p></section>
   <svg class="art" viewBox="0 0 400 60" style="max-width:560px;margin:0 auto" id="div1"></svg>
 
   <section class="reveal">
@@ -148,9 +222,9 @@ garland($('gTop'),false);garland($('gBot'),true);
 // envelope
 $('env').onclick=()=>{
   const e=$('env');if(e.classList.contains('open'))return;
-  e.classList.add('open');e.style.animation='none';
+  e.classList.add('open');$('intro').classList.add('opening');shower();
   setTimeout(()=>{$('intro').classList.add('gone');$('invite').classList.add('show');$('music').style.display='flex';watch();
-    if($('aud').src){$('aud').play().catch(()=>{})}},1700);
+    if($('aud').src){$('aud').play().catch(()=>{})}},3400);setTimeout(()=>$('intro').remove(),5600);
 };
 // photo slots
 document.querySelectorAll('.slot').forEach(s=>{
@@ -174,7 +248,26 @@ tick();setInterval(tick,1000);
 const a=$('aud');a.src='music.mp3';a.onerror=()=>{a.removeAttribute('src')};
 $('mFile').onchange=e=>{const f=e.target.files[0];if(!f)return;a.src=URL.createObjectURL(f);a.play().catch(()=>{})};
 $('mBtn').onclick=()=>{if(!a.src)return;a.paused?a.play():a.pause()};
+// painted decor: falling petals, waves, tap bursts
+const PC=['#f6a41c','#d6336c','#ffc9d4','#e0527f','#fbc43a'];let dn=0;
+for(let i=0;i<18;i++){const p=document.createElement('i');p.className='petal'+(i%3?'':' rose');
+  p.style.cssText=`left:${Math.random()*100}vw;--s:${8+Math.random()*14}px;--c:${PC[i%5]};--d:${8+Math.random()*9}s;--dl:-${Math.random()*14}s;--x:${(Math.random()-.5)*160}px`;$('intro').appendChild(p)}
+function shower(){for(let i=0;i<36;i++){const p=document.createElement('i');p.className='petal'+(i%3?'':' rose');
+  p.style.cssText=`left:${Math.random()*100}vw;--s:${8+Math.random()*14}px;--c:${PC[i%5]};--d:${2.2+Math.random()*2}s;--dl:${Math.random()*1.2}s;--x:${(Math.random()-.5)*200}px;z-index:60;animation-iteration-count:1`;document.body.appendChild(p);setTimeout(()=>p.remove(),5200)}}
+addEventListener('pointerdown',e=>{for(let i=0;i<7;i++){const p=document.createElement('i'),a=Math.random()*6.28,r=40+Math.random()*50;p.className='burst';
+  p.style.cssText=`left:${e.clientX}px;top:${e.clientY}px;--dx:${Math.cos(a)*r}px;--dy:${Math.sin(a)*r}px;--c:${PC[i%5]}`;document.body.appendChild(p);setTimeout(()=>p.remove(),900)}});
+function decor(){if(dn++)return;
+  for(let i=0;i<20;i++){const p=document.createElement('i');p.className='petal'+(i%3?'':' rose');
+    p.style.cssText=`left:${Math.random()*100}vw;--s:${8+Math.random()*14}px;--c:${PC[i%5]};--d:${8+Math.random()*10}s;--dl:-${Math.random()*14}s;--x:${(Math.random()-.5)*160}px`;document.body.appendChild(p)}
+  const HP=[[32,109,1],[72,109,1],[88,109,1],[128,109,1],[272,109,-1],[312,109,-1],[328,109,-1],[368,109,-1]],sc=document.querySelector('.scene');
+  if(sc)HP.forEach((h,k)=>{for(let j=0;j<4;j++){const p=document.createElement('i');p.className='tp';
+    p.style.cssText=`left:${h[0]/4}%;top:${h[1]/2.5}%;--c:${PC[(k+j)%5]};--tx:${h[2]*(25+Math.random()*60)}px;--d:${2.6+Math.random()*1.6}s;--dl:-${Math.random()*4}s`;sc.appendChild(p)}});
+  let tl='';for(let k=0;k<17;k++){const x=k*25;tl+=`<path d="M${x+5} 2q-7 15 0 30q7-15 0-30" fill="${k%2?'#4d8a52':'#6aa56a'}"/><circle cx="${x+5}" cy="35" r="2.6" fill="#f6a41c"/>`}
+  const tw=document.createElement('div');tw.innerHTML=`<svg class="art sw" viewBox="0 0 400 40" preserveAspectRatio="xMidYMin slice"><path d="M0 2H400" stroke="#c8962e" stroke-width="2"/>${tl}</svg>`;$('gTop').after(tw.firstChild);
+  const WC=[['#f9d9c4','#f7c6d0'],['#cfe5cc','#f3dfa2'],['#f7c6d0','#cfe5cc']];
+  document.querySelectorAll('#invite section').forEach((s,i)=>{if(!i)return;const c=WC[i%3],w=document.createElement('div');w.className='wave';
+    w.innerHTML=`<svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0 30Q150 0 300 30T600 30T900 30T1200 30V60H0Z" fill="${c[0]}"/></svg><svg class="r" viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0 36Q150 64 300 36T600 36T900 36T1200 36V60H0Z" fill="${c[1]}"/></svg>`;s.before(w)})}
 // scroll reveal
-function watch(){const o=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')}),{threshold:.15});
+function watch(){decor();const o=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')}),{threshold:.15});
   document.querySelectorAll('.reveal').forEach(n=>o.observe(n))}
 </script></body></html>
